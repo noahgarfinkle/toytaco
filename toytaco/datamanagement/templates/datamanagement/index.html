@@ -1,0 +1,17 @@
+{% load leaflet_tags %}
+<head>
+  {% leaflet_js %}
+  {% leaflet_css %}
+</head>
+<body>
+  {% leaflet_map "yourmap" %}
+  {% if assetTypesList %}
+      <ul>
+      {% for asset_type in assetTypesList %}
+          <li><a href="/data/{{ asset_type.id }}/">{{ asset_type.name }}</a></li>
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>No Asset Types are available.</p>
+  {% endif %}
+</body>

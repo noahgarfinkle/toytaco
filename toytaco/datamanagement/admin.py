@@ -3,4 +3,10 @@ from .models import Asset, Asset_Type
 
 # Register your models here.
 admin.site.register(Asset)
-admin.site.register(Asset_Type)
+
+class Asset_Type_Admin(admin.ModelAdmin):
+    fieldsets = [
+    ('Overview', {'fields':['name']}),
+    ]
+
+admin.site.register(Asset_Type,Asset_Type_Admin)
